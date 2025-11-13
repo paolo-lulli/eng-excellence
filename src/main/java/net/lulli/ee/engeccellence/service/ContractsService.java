@@ -1,0 +1,51 @@
+package net.lulli.ee.engeccellence.service;
+
+import net.lulli.ee.engeccellence.dto.Contract;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class ContractsService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ContractsService.class);
+
+    private List<Contract> contractList = new ArrayList<>();
+
+    public List<Contract> getAllContracts() {
+        return contractList;
+    }
+
+    public Optional<Contract> getContract(String id) {
+        for (Contract contract : contractList) {
+            if (contract.getId() == id) {
+                LOGGER.info("Retrieved contract id: {}", contract.getId());
+                return Optional.of(contract);
+            }
+        }
+        return Optional.empty();
+    }
+
+    public void addContract(Contract contract) {
+        contractList.add(contract);
+        LOGGER.info("Added contract {}", contract);
+    }
+
+    public String updateContract(String id, Contract updatedContract) {
+        for (Contract contract : contractList) {
+            if (contract.getId() == id) {
+                contract.setName(updatedContract.getName());
+                return "Data Updated Successfully";
+            }
+        }
+        return "Detail not found!";
+    }
+
+    public String deleteContract(String id) {
+        contractList.removeIf(contract -> contract.getId().equals(id));
+        return "Data Deleted Successfully";
+    }
+}
