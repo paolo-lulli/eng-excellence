@@ -27,11 +27,21 @@ mvn spring-boot:run
 
 ## Feature Toggle
 
-Om man vill köra 'Feature X' på FeatureXController, måste man sätta false på följande:
+Om man vill köra 'Feature X' på FeatureXController, måste man sätta true på följande:
 
 ```
 feature.toggle.featurex=false
 ```
+
+För att bevisa att 'Feature X' är aktiv, man kan göra så:
+
+```
+curl http://127.0.0.1:8080/api/v1/featurex/data
+```
+
+-   Feature X svarar: "Actual Data"
+-   Feature X disabled svarar: "The Feature is currently not active" 
+
 
 [application.properties](src/main/resources/application.properties)
 
