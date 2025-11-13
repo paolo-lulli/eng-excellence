@@ -52,7 +52,7 @@ curl http://127.0.0.1:8080/api/v1/featurex/data
 
 ## Automatiserad säkeret och kvalitet
 
-### Sonarqube scan
+### Sonarqube 
 
 Medan den följande istruktioner i [Github Action](.github/workflows/maven.yml)
 
@@ -65,8 +65,11 @@ Medan den följande istruktioner i [Github Action](.github/workflows/maven.yml)
 kan man få ett SonarQube scan av hela projekt. 
 Just nu kommenterade dem för att undvika konflikter med sonarcloud.io där redan samma projekt hade jag skapat för att se om det går med fri versionen.
 
+### Alternativer
 
-## Enkel Observability - log och health check
+På samma sätt som Sonarqube är möjlight att göra scan av kod med, [trivy](https://trivy.dev/) till exempel, eller andra verktyg.
+
+## Enkel Observability - loggning och health check
 
 
 Medan att sätta true/false på följande:
@@ -74,7 +77,7 @@ Medan att sätta true/false på följande:
 ```
 management.endpoints.web.exposure.include=health,info 
 ```
-Spring ska publicera ett Rest Endpoint där man ha koll att applikationen är upp.
+Spring ska publicera ett Rest Endpoint (```/actuator/health```) där man har full koll om applikationen är upp.
 
 Exempel med *curl*:
 
