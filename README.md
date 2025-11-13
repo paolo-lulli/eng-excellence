@@ -3,23 +3,37 @@
 
 ## Test-Driven Utveckling (TDD)
 
-Om man kör:
+För att bygga applikationen:
 
 ```
-mvn clean install test
+mvn clean install
 ```
 
-det finns unit test som gynnar applikationen. Om något är fel, builden kommer att misslyckas.
+För att köra unit test som gynnar applikationen:
+
+```
+mvn test
+```
+
+Om något är fel, builden kommer att misslyckas.
+
+
+För att köra applikationen:
+
+```
+mvn spring-boot:run
+```
+
 
 ## Feature Toggle
 
-Medan att sätta true/false på följande:
+Om man vill köra 'Feature X' på FeatureXController, måste man sätta false på följande:
 
 ```
 feature.toggle.featurex=false
 ```
 
-man kör FeatureXController eller något annat som inte har 'feature X'
+[application.properties](src/main/resources/application.properties)
 
 
 ## CI/CD Pipeline
