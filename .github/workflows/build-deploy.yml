@@ -33,7 +33,7 @@ jobs:
 
     - name: Set commit environment variable
       run: commit_id=$(git rev-parse --short HEAD); echo "COMMIT_ID=${commit_id}" >> $GITHUB_ENV
-      
+
     - name: Login to repo for Base Images
       env:
         harbor_user: ${{ secrets.HARBOR_USER }}
