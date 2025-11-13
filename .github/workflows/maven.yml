@@ -20,12 +20,11 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-
-      #    - name: Sonarqube Scan
-      #      env:
-      #        SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
-      #        SONAR_HOST_URL: https://your-sonar-here
-      #      run:  mvn -DskipTests -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=battman.battman-mvp -Dsonar.login=${{ secrets.SONARQUBE_TOKEN }} -Dsonar.host.url=https://orion-sonarqube.volvocars.biz
+      - name: Sonarqube Scan
+        env:
+            SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+            SONAR_HOST_URL: https://sonarcloud.io
+        run:  mvn -DskipTests -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=battman.battman-mvp -Dsonar.login=${{ secrets.SONARQUBE_TOKEN }} -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
 
 
       - name: Build with Maven
