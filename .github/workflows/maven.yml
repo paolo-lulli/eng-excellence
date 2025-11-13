@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build_push_image:
+  build_and_test:
     runs-on: ubuntu-latest
     environment: "dev"
     defaults:
