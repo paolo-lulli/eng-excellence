@@ -46,8 +46,17 @@ curl http://127.0.0.1:8080/api/v1/featurex/data
 [application.properties](src/main/resources/application.properties)
 
 
-## CI/CD Pipeline
+## CI/CD Pipeline (YAML med Github Actions)
 
+I [Github Action](.github/workflows/maven.yml) finns beskrivelse för workflow som bygger applikationen, kör test och
+andra steg som, till exempel *Sonarqube* scan.
+
+Här vi kunde logga in till en artifactory och spara *.jar filen för applikationen.
+Andra steg kan det vara, till exempel, att skapa ett Docker image för applikationen,
+eller göra Deploy av dessa till Produktion, och så vidare.
+
+Det är ett bra verktyg som vi kan använda för att skapa custom pipeliner för alla processer som behövs.
+Just nu är det bara ett MVP som bygger applikationen, kör test och Sonarqube.
 
 
 ## Automatiserad säkeret och kvalitet
