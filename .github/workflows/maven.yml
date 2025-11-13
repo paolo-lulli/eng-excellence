@@ -23,8 +23,7 @@ jobs:
       - name: Sonarqube Scan
         env:
             SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
-            SONAR_HOST_URL: https://sonarcloud.io
-        run:  mvn -DskipTests -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=battman.battman-mvp -Dsonar.login=${{ secrets.SONARQUBE_TOKEN }} -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+        run:  mvn -DskipTests -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=battman.battman-mvp -Dsonar.login=${{ secrets.SONARQUBE_TOKEN }} -Dsonar.host.url=https://sonarcloud.io
 
 
       - name: Build with Maven
