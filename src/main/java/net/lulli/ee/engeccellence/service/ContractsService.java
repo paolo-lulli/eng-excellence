@@ -21,7 +21,7 @@ public class ContractsService {
 
     public Optional<Contract> getContract(String id) {
         for (Contract contract : contractList) {
-            if (contract.getId() == id) {
+            if (contract.getId().equals(id)) {
                 LOGGER.info("Retrieved contract id: {}", contract.getId());
                 return Optional.of(contract);
             }

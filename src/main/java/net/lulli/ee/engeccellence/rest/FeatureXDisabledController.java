@@ -17,7 +17,7 @@ public class FeatureXDisabledController implements FeatureXControllerInterface {
     @Override
     @GetMapping("/data")
     public String getData(String param) {
-        LOGGER.info("Calling DISABLED featurex with param {}", param);
+        LOGGER.info("Calling DISABLED featurex");
         return "The Feature is currently not active";
     }
 }

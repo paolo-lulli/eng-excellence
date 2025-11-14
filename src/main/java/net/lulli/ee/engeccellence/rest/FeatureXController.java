@@ -17,7 +17,7 @@ public class FeatureXController implements FeatureXControllerInterface {
     @Override
     @GetMapping("/data")
     public String getData(String param) {
-        LOGGER.info("Calling ENABLED featurex with param {}", param);
+        LOGGER.info("Calling ENABLED featurex");
         return "Actual Data";
     }
 }
