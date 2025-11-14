@@ -37,7 +37,7 @@ public class ContractsService {
 
     public void updateContract(String id, Contract updatedContract) {
         for (Contract contract : contractList) {
-            if (contract.getId() == id) {
+            if (contract.getId().equals(id)) {
                 contract.setName(updatedContract.getName());
                 LOGGER.info("Updated contract {}", contract);
             }
