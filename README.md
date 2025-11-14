@@ -94,8 +94,10 @@ Medan den följande istruktioner i [Github Action](.github/workflows/maven.yml)
    SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
    run:  mvn -DskipTests -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=paolo-lulli_eng-excellence -Dsonar.organization=paolo-lulli -Dsonar.login=${{ secrets.SONARQUBE_TOKEN }} -Dsonar.host.url=https://sonarcloud.io
 ```
-kan man få ett SonarQube scan av hela projekt. 
-Just nu kommenterade dem för att undvika konflikter med sonarcloud.io där redan samma projekt hade jag skapat för att se om det går med fri versionen.
+kan man genomdriva ett SonarQube scan av hela projekt. 
+
+Just nu kommenterades för att undvika konflikter där redan skapade jag det manuellt på fri kontot oss sonarcloud.io.
+
 
 ### Alternativer
 
