@@ -49,9 +49,9 @@ public class ContractsService {
     public void deleteContract(String id) {
         var removed = contractList.removeIf(contract -> contract.getId().equals(id));
         if (removed) {
-            LOGGER.info("Removed contract {}", id);
+            LOGGER.info("Removed contract");
         } else {
-            LOGGER.error("Could not find contract to remove with id: {}", id);
+            LOGGER.error("Could not find contract to remove");
         }
 
     }
