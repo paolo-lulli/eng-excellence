@@ -2,11 +2,13 @@
 
 ## Applikationen
 
-Applickationen består av 2 olika Rest Controller:
+Applikationen består av 2 olika Rest Controller:
 
 -   [ContractsController](./src/main/java/net/lulli/ee/engeccellence/rest/ContractsController.java): CRUD på en 'Contract' entity
--   [FeatureXController](./src/main/java/net/lulli/ee/engeccellence/rest/FeatureXController.java): Bara för att visa hur man gör ett Feature Flag
+-   [FeatureXController](./src/main/java/net/lulli/ee/engeccellence/rest/FeatureXController.java): visar bara hur man kan leverera en tjänst som Feature Flag
 
+Alla funktionalitet i Controller delegeras till en Service: [ContractsService](src/main/java/net/lulli/ee/engeccellence/service/ContractsService.java)
+för att koppla av funktionalitet från Controller.
 
 ## Test-Driven Utveckling (TDD)
 
@@ -30,6 +32,18 @@ För att köra applikationen:
 ```
 mvn spring-boot:run
 ```
+
+Unit Test är här:
+
+-   [ContractsServiceTest](src/test/java/net/lulli/ee/engeccellence/service/ContractsServiceTest.java)
+-   [DataRepositoryTest](src/test/java/net/lulli/ee/engeccellence/db/DataRepositoryTest.java)
+
+och det finns en IntegrationTest här: [IntegrationTest](src/test/java/net/lulli/ee/engeccellence/service/IntegrationTest.java)
+som använder port 8080. IntegrationTest kör servern först och kallar Health endpoint på det.
+```
+
+```
+
 
 
 ## Feature Toggle
@@ -55,7 +69,7 @@ curl http://127.0.0.1:8080/api/v1/featurex/data
 
 ## CI/CD Pipeline (YAML med Github Actions)
 
-I [Github Action](.github/workflows/maven.yml) finns beskrivelse för workflow som bygger applikationen, kör test och
+I [Github Action](.github/workflows/maven.yml) finns beskrivning av workflow som bygger applikationen, kör test och
 andra steg som, till exempel *Sonarqube* scan.
 
 Här vi kunde logga in till en artifactory och spara *.jar filen för applikationen.
