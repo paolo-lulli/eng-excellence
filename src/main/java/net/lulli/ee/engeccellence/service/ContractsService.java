@@ -42,7 +42,7 @@ public class ContractsService {
                 LOGGER.info("Updated contract {}", contract);
             }
         }
-        LOGGER.error("Could not find contract to update with id: {}", id);
+        LOGGER.error("Could not find contract to update");
 
     }
 
