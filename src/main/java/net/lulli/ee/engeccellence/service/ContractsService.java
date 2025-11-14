@@ -26,6 +26,7 @@ public class ContractsService {
                 return Optional.of(contract);
             }
         }
+        LOGGER.error("Could not retrieve contract with id: {}", id);
         return Optional.empty();
     }
 
@@ -34,18 +35,24 @@ public class ContractsService {
         LOGGER.info("Added contract {}", contract);
     }
 
-    public String updateContract(String id, Contract updatedContract) {
+    public void updateContract(String id, Contract updatedContract) {
         for (Contract contract : contractList) {
             if (contract.getId() == id) {
                 contract.setName(updatedContract.getName());
-                return "Data Updated Successfully";
+                LOGGER.info("Updated contract {}", contract);
             }
         }
-        return "Detail not found!";
+        LOGGER.error("Could not find contract to update with id: {}", id);
+
     }
 
-    public String deleteContract(String id) {
-        contractList.removeIf(contract -> contract.getId().equals(id));
-        return "Data Deleted Successfully";
+    public void deleteContract(String id) {
+        var removed = contractList.removeIf(contract -> contract.getId().equals(id));
+        if (removed) {
+            LOGGER.info("Removed contract {}", id);
+        } else {
+            LOGGER.error("Could not find contract to remove with id: {}", id);
+        }
+
     }
 }

@@ -34,12 +34,12 @@ public class ContractsController {
 
 
     @PutMapping("/contracts/{id}")
-    public String updateContracts(@PathVariable String id, @RequestBody Contract updatedContract) {
-        return contractsService.updateContract(id, updatedContract);
+    public void updateContracts(@PathVariable String id, @RequestBody Contract updatedContract) {
+        contractsService.updateContract(id, updatedContract);
     }
 
     @DeleteMapping("/contracts/{id}")
-    public String deleteContracts(@PathVariable String id) {
-        return contractsService.deleteContract(id);
+    public void deleteContracts(@PathVariable String id) {
+        contractsService.deleteContract(id);
     }
 }
