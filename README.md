@@ -65,6 +65,8 @@ eller göra Deploy av dessa till Produktion, och så vidare.
 Det är ett bra verktyg som vi kan använda för att skapa custom pipeliner för alla processer som behövs.
 Just nu är det bara ett MVP som bygger applikationen, kör test och Sonarqube.
 
+Just nu, varje gång vi gör **git push** till git repo och branch **main** börjar en ny workflow
+som visas [här](https://github.com/paolo-lulli/eng-excellence/actions/workflows/maven.yml)
 
 ## Automatiserad säkeret och kvalitet
 
