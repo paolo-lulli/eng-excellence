@@ -31,7 +31,7 @@ public class ContractsController {
     public List<Contract> getContract(@PathVariable String id) {
         return contractsService.getAllContracts();
     }
-    
+
     @PutMapping("/contracts/{id}")
     public void updateContract(@PathVariable String id, @RequestBody Contract updatedContract) {
         contractsService.updateContract(id, updatedContract);
