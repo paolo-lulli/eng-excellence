@@ -22,7 +22,7 @@ public class ContractsController {
     }
 
     @PostMapping("/contracts")
-    public String addContracts(@RequestBody Contract contract) {
+    public String addContract(@RequestBody Contract contract) {
         contractsService.addContract(contract);
         return "Data Inserted Successfully";
     }
@@ -31,15 +31,14 @@ public class ContractsController {
     public List<Contract> getContract(@PathVariable String id) {
         return contractsService.getAllContracts();
     }
-
-
+    
     @PutMapping("/contracts/{id}")
-    public void updateContracts(@PathVariable String id, @RequestBody Contract updatedContract) {
+    public void updateContract(@PathVariable String id, @RequestBody Contract updatedContract) {
         contractsService.updateContract(id, updatedContract);
     }
 
     @DeleteMapping("/contracts/{id}")
-    public void deleteContracts(@PathVariable String id) {
+    public void deleteContract(@PathVariable String id) {
         contractsService.deleteContract(id);
     }
 }
